@@ -14,9 +14,11 @@ pipeline {
         }
         stage('Get Upstream') {
             steps {
-                script {
-                    echo 'Getting upstream'
-                }
+               build(
+                    job: "guntukaramakrishna/jenkins-repo1/master",
+                    wait: false,
+                    propagate: false
+                  )
             }
         }
         stage('Deploy') {
